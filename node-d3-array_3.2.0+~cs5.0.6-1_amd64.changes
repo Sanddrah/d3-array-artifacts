@@ -1,0 +1,41 @@
+Format: 1.8
+Date: Mon, 17 Oct 2022 11:42:54 +0000
+Source: node-d3-array
+Binary: node-d3-array
+Architecture: source all
+Version: 3.2.0+~cs5.0.6-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Changed-By: sandra uwah <sandrauwah282@gmail.com>
+Description:
+ node-d3-array - Array manipulation, ordering, searching, summarizing, etc
+Changes:
+ node-d3-array (3.2.0+~cs5.0.6-1) unstable; urgency=medium
+ .
+   * Team upload
+   * New upstream version 3.2.0+~cs5.0.6-1
+Checksums-Sha1:
+ 45447f5fe08ece616a49c7fb9e5cc78050055c84 1978 node-d3-array_3.2.0+~cs5.0.6-1.dsc
+ cc52ae563d2abbf4fbb2d5ef7636da4c4a5655fb 28539 node-d3-array_3.2.0+~cs5.0.6.orig-internmap.tar.gz
+ 87d990bf504d14ad6b16766979d04e943c046dac 9262 node-d3-array_3.2.0+~cs5.0.6.orig-types-d3-array.tar.gz
+ 1fd2a7af7cb36b85dd7209773f463b011e12c598 397537 node-d3-array_3.2.0+~cs5.0.6.orig.tar.gz
+ 61256b2c00b4af7d928970436a9770efd6a46dcc 4916 node-d3-array_3.2.0+~cs5.0.6-1.debian.tar.xz
+ 3a834ff3d582af3be876d04d885fc9103b43d03a 44064 node-d3-array_3.2.0+~cs5.0.6-1_all.deb
+ 335684606d3c099319deef2d15d07b85e9cda00d 13889 node-d3-array_3.2.0+~cs5.0.6-1_amd64.buildinfo
+Checksums-Sha256:
+ 70939fbef9db92364b85e36c9a0fe4b270bf1c02876286218b5a61c546d52464 1978 node-d3-array_3.2.0+~cs5.0.6-1.dsc
+ ec4e2c88a5cc89f712515d498c6cd83a174521e69e12b8fd4da5ac47699a418c 28539 node-d3-array_3.2.0+~cs5.0.6.orig-internmap.tar.gz
+ 28ae17be86dde20f49c811c6741f557b35653c2bf410b4209a10753fb26987a3 9262 node-d3-array_3.2.0+~cs5.0.6.orig-types-d3-array.tar.gz
+ feb764eb3ddfe59c3744988fc76d3fe7ee3b2bf2522b4acaef65658198d6bdc4 397537 node-d3-array_3.2.0+~cs5.0.6.orig.tar.gz
+ 8aa02efdc87154feaad3aa7896f5cdefbbfb01ebaccc44f4341a19e67f625f20 4916 node-d3-array_3.2.0+~cs5.0.6-1.debian.tar.xz
+ 87d37055cb75fdc3c54eb16a5246623ce14091f2c4a10b3542b8a3d8a9441823 44064 node-d3-array_3.2.0+~cs5.0.6-1_all.deb
+ 34ba33e0e33d96365a57dc42cb343c8a1f156fe79d1a4b8de24b0a95a7f1fff6 13889 node-d3-array_3.2.0+~cs5.0.6-1_amd64.buildinfo
+Files:
+ 4fd061edb5359b7056f443cc9b42b0f0 1978 javascript optional node-d3-array_3.2.0+~cs5.0.6-1.dsc
+ 3ba5de2868e8f9174b4559b63cef9864 28539 javascript optional node-d3-array_3.2.0+~cs5.0.6.orig-internmap.tar.gz
+ c86a0b9b4ddbead6d54092b12ebcead2 9262 javascript optional node-d3-array_3.2.0+~cs5.0.6.orig-types-d3-array.tar.gz
+ fea3699a7fae52b82b593e9775240148 397537 javascript optional node-d3-array_3.2.0+~cs5.0.6.orig.tar.gz
+ 1074710d4990630b6ea538fad8330a92 4916 javascript optional node-d3-array_3.2.0+~cs5.0.6-1.debian.tar.xz
+ 32a422f8202ef6441a9845a394a9df1a 44064 javascript optional node-d3-array_3.2.0+~cs5.0.6-1_all.deb
+ 11ae0f8459dba139bc90f990dc778bc1 13889 javascript optional node-d3-array_3.2.0+~cs5.0.6-1_amd64.buildinfo

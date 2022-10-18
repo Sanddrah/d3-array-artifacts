@@ -1,0 +1,742 @@
+ dpkg-buildpackage -us -uc -ui
+dpkg-buildpackage: info: source package node-d3-array
+dpkg-buildpackage: info: source version 3.2.0+~cs5.0.6-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by sandra uwah <sandrauwah282@gmail.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying export-commonjs-files.patch
+ debian/rules clean
+dh clean
+   dh_auto_clean --buildsystem=nodejs
+	rm -rf ./node_modules/.cache ./.nyc_output
+	rm -rf internmap/node_modules/.cache internmap/.nyc_output
+	rm -rf types-d3-array/node_modules/.cache types-d3-array/.nyc_output
+rm ./node_modules/.cache
+unlink ./node_modules/d3-dsv
+rm internmap/node_modules/.cache
+rm types-d3-array/node_modules/.cache
+unlink node_modules/internmap
+unlink node_modules/@types/d3-array
+   dh_clean
+ dpkg-source -b .
+dpkg-source: info: using source format '3.0 (quilt)'
+dpkg-source: info: building node-d3-array using existing ./node-d3-array_3.2.0+~cs5.0.6.orig-internmap.tar.gz
+dpkg-source: info: building node-d3-array using existing ./node-d3-array_3.2.0+~cs5.0.6.orig-types-d3-array.tar.gz
+dpkg-source: info: building node-d3-array using existing ./node-d3-array_3.2.0+~cs5.0.6.orig.tar.gz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: warning: ignoring deletion of directory .github
+dpkg-source: warning: ignoring deletion of file .github/eslint.json, use --include-removal to override
+dpkg-source: warning: ignoring deletion of directory .github/workflows
+dpkg-source: warning: ignoring deletion of file .github/workflows/node.js.yml, use --include-removal to override
+dpkg-source: warning: ignoring deletion of directory internmap/.github
+dpkg-source: warning: ignoring deletion of file internmap/.github/eslint.json, use --include-removal to override
+dpkg-source: warning: ignoring deletion of directory internmap/.github/workflows
+dpkg-source: warning: ignoring deletion of file internmap/.github/workflows/node.js.yml, use --include-removal to override
+dpkg-source: info: building node-d3-array in node-d3-array_3.2.0+~cs5.0.6-1.debian.tar.xz
+dpkg-source: info: building node-d3-array in node-d3-array_3.2.0+~cs5.0.6-1.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure --buildsystem=nodejs
+Link ./node_modules/d3-dsv -> /usr/share/nodejs/d3-dsv
+Link node_modules/internmap -> ../internmap
+Link node_modules/@types/d3-array -> ../../types-d3-array
+   dh_auto_build --buildsystem=nodejs
+Found debian/nodejs/internmap/build
+	cd ./internmap && sh -ex ../debian/nodejs/internmap/build
++ rollup -c
+[36m
+[1msrc/index.js[22m → [1mdist/internmap.js[22m...[39m
+[32mcreated [1mdist/internmap.js[22m in [1m154ms[22m[39m
+[36m
+[1msrc/index.js[22m → [1mdist/internmap.min.js[22m...[39m
+[32mcreated [1mdist/internmap.min.js[22m in [1m921ms[22m[39m
++ mjs2cjs src/index.js
+[36m
+[1msrc/index.js[22m → [1m./dist/index.cjs[22m...[39m
+[32mcreated [1m./dist/index.cjs[22m in [1m164ms[22m[39m
+No build command found, searching known files
+Found debian/nodejs/./build
+	cd ./. && sh -ex debian/nodejs/./build
++ rollup -c
+[36m
+[1msrc/index.js[22m → [1mdist/d3-array.js[22m...[39m
+[32mcreated [1mdist/d3-array.js[22m in [1m1s[22m[39m
+[36m
+[1msrc/index.js[22m → [1mdist/d3-array.min.js[22m...[39m
+[32mcreated [1mdist/d3-array.min.js[22m in [1m3.1s[22m[39m
++ mjs2cjs src/index.js
+[36m
+[1msrc/index.js[22m → [1m./dist/index.cjs[22m...[39m
+[32mcreated [1m./dist/index.cjs[22m in [1m914ms[22m[39m
+   dh_auto_test --buildsystem=nodejs
+	ln -s ../. node_modules/d3-array
+	/bin/sh -ex debian/tests/pkg-js/test
++ ls+ grep -v test/shuffle-test.js
+ test/ascending-test.js test/bin-test.js test/bisect-test.js test/bisector-test.js test/blur-test.js test/count-test.js test/cross-test.js test/cumsum-test.js test/descending-test.js test/deviation-test.js test/difference-test.js test/disjoint-test.js test/every-test.js test/extent-test.js test/fcumsum-test.js test/filter-test.js test/flatGroup-test.js test/flatRollup-test.js test/fsum-test.js test/greatest-test.js test/greatestIndex-test.js test/group-test.js test/groupSort-test.js test/groups-test.js test/index-test.js test/intersection-test.js test/least-test.js test/leastIndex-test.js test/map-test.js test/max-test.js test/maxIndex-test.js test/mean-test.js test/median-test.js test/merge-test.js test/min-test.js test/minIndex-test.js test/mode-test.js test/nice-test.js test/pairs-test.js test/permute-test.js test/quantile-test.js test/range-test.js test/rank-test.js test/reduce-test.js test/reverse-test.js test/rollup-test.js test/rollups-test.js test/scan-test.js test/shuffle-test.js test/some-test.js test/sort-test.js test/subset-test.js test/sum-test.js test/superset-test.js test/tickIncrement-test.js test/tickStep-test.js test/ticks-test.js test/transpose-test.js test/union-test.js test/variance-test.js test/zip-test.js
++ mocha test/ascending-test.js test/bin-test.js test/bisector-test.js test/bisect-test.js test/blur-test.js test/count-test.js test/cross-test.js test/cumsum-test.js test/descending-test.js test/deviation-test.js test/difference-test.js test/disjoint-test.js test/every-test.js test/extent-test.js test/fcumsum-test.js test/filter-test.js test/flatGroup-test.js test/flatRollup-test.js test/fsum-test.js test/greatestIndex-test.js test/greatest-test.js test/groupSort-test.js test/groups-test.js test/group-test.js test/index-test.js test/intersection-test.js test/leastIndex-test.js test/least-test.js test/map-test.js test/maxIndex-test.js test/max-test.js test/mean-test.js test/median-test.js test/merge-test.js test/minIndex-test.js test/min-test.js test/mode-test.js test/nice-test.js test/pairs-test.js test/permute-test.js test/quantile-test.js test/range-test.js test/rank-test.js test/reduce-test.js test/reverse-test.js test/rollups-test.js test/rollup-test.js test/scan-test.js test/some-test.js test/sort-test.js test/subset-test.js test/sum-test.js test/superset-test.js test/tickIncrement-test.js test/tickStep-test.js test/ticks-test.js test/transpose-test.js test/union-test.js test/variance-test.js test/zip-test.js
+
+
+  undefined ascending(a, b) returns a negative number if a < b
+  undefined ascending(a, b) returns a positive number if a > b
+  undefined ascending(a, b) returns zero if a >= b and a <= b
+  undefined ascending(a, b) returns NaN if a and b are not comparable
+  undefined histogram is a deprecated alias for bin
+  undefined bin() returns a default bin generator
+  undefined bin(data) computes bins of the specified array of data
+  undefined bin(iterable) is equivalent to bin(array)
+  undefined bin.value(number) sets the constant value
+  undefined bin(data) does not bin null, undefined, or NaN
+  undefined bin.value(function) sets the value accessor
+  undefined bin.domain(array) sets the domain
+  undefined bin.domain(function) sets the domain accessor
+  undefined bin.thresholds(number) sets the approximate number of bin thresholds
+  undefined bin.thresholds(array) sets the bin thresholds
+  undefined bin.thresholds(array) ignores thresholds outside the domain
+  undefined bin.thresholds(function) sets the bin thresholds accessor
+  undefined bin(data) uses nice thresholds
+  undefined bin()() returns bins whose rightmost bin is not too wide
+  undefined bin(data) handles fractional step correctly
+  undefined bin(data) handles fractional step correctly with a custom, non-aligned domain
+  undefined bin(data) handles fractional step correctly with a custom, aligned domain
+  undefined bin(data) coerces values to numbers as expected
+  undefined bin(athletes) produces the expected result (158ms)
+  undefined bin(data) assigns floating point values to the correct bins (299ms)
+  undefined bin(data) assigns integer values to the correct bins
+  undefined bisector(comparator).left(array, value) returns the index of an exact match
+  undefined bisector(comparator).left(array, value) returns the index of the first match
+  undefined bisector(comparator).left(empty, value) returns zero
+  undefined bisector(comparator).left(array, value) returns the insertion point of a non-exact match
+  undefined bisector(comparator).left(array, value) has undefined behavior if the search value is unorderable
+  undefined bisector(comparator).left(array, value, lo) observes the specified lower bound
+  undefined bisector(comparator).left(array, value, lo, hi) observes the specified bounds
+  undefined bisector(comparator).left(array, value) handles large sparse d3
+  undefined bisector(comparator).right(array, value) returns the index after an exact match
+  undefined bisector(comparator).right(array, value) returns the index after the last match
+  undefined bisector(comparator).right(empty, value) returns zero
+  undefined bisector(comparator).right(array, value) returns the insertion point of a non-exact match
+  undefined bisector(comparator).right(array, value, lo) observes the specified lower bound
+  undefined bisector(comparator).right(array, value, lo, hi) observes the specified bounds
+  undefined bisector(comparator).right(array, value) handles large sparse d3
+  undefined bisector(comparator).left(array, value) supports an asymmetric (object, value) comparator
+  - bisector(comparator).left(array, value) keeps non-comparable values to the right
+  undefined bisector(accessor).left(array, value) keeps non-comparable values to the right
+  undefined bisector(accessor).left(array, value) returns the index of an exact match
+  undefined bisector(accessor).left(array, value) returns the index of the first match
+  undefined bisector(accessor).left(array, value) returns the insertion point of a non-exact match
+  undefined bisector(accessor).left(array, value) has undefined behavior if the search value is unorderable
+  undefined bisector(accessor).left(array, value, lo) observes the specified lower bound
+  undefined bisector(accessor).left(array, value, lo, hi) observes the specified bounds
+  undefined bisector(accessor).left(array, value) handles large sparse d3
+  undefined bisector(accessor).right(array, value) returns the index after an exact match
+  undefined bisector(accessor).right(array, value) returns the index after the last match
+  undefined bisector(accessor).right(array, value) returns the insertion point of a non-exact match
+  undefined bisector(accessor).right(array, value, lo) observes the specified lower bound
+  undefined bisector(accessor).right(array, value, lo, hi) observes the specified bounds
+  undefined bisector(accessor).right(array, value) handles large sparse d3
+  undefined bisector(accessor).center(array, value) returns the closest index
+  undefined bisector(comparator).center(array, value) returns the closest index
+  undefined bisector(comparator).center(empty, value) returns zero
+  undefined bisector(ascending).center(array, value) returns the left value
+  undefined bisector(ordinalAccessor).center(array, value) returns the left value
+  undefined bisect is an alias for bisectRight
+  undefined bisectLeft(array, value) returns the index of an exact match
+  undefined bisectLeft(array, value) returns the index of the first match
+  undefined bisectLeft(empty, value) returns zero
+  undefined bisectLeft(array, value) returns the insertion point of a non-exact match
+  undefined bisectLeft(array, value) has undefined behavior if the search value is unorderable
+  undefined bisectLeft(array, value, lo) observes the specified lower bound
+  undefined bisectLeft(array, value, lo, hi) observes the specified bounds
+  undefined bisectLeft(array, value) handles large sparse d3
+  undefined bisectRight(array, value) returns the index after an exact match
+  undefined bisectRight(array, value) returns the index after the last match
+  undefined bisectRight(empty, value) returns zero
+  undefined bisectRight(array, value) returns the insertion point of a non-exact match
+  undefined bisectRight(array, value, lo) observes the specified lower bound
+  undefined bisectRight(array, value, lo, hi) observes the specified bounds
+  undefined bisectRight(array, value) handles large sparse d3
+  undefined bisectLeft(array, value, lo, hi) keeps non-comparable values to the right
+  undefined bisectLeft(array, value, lo, hi) keeps comparable values to the left
+  undefined bisectRight(array, value, lo, hi) keeps non-comparable values to the right
+  undefined blur(values, r) returns values
+  undefined blur(values, r) observes the expected integer radius r
+  undefined blur(values, r) observes the expected fractional radius r
+  undefined blur(values, r) repeats starting values before the window
+  undefined blur(values, r) approximately preserves total value
+  undefined blur2(data, r) modifies in-place
+  undefined data.height is redundant for blur2
+  undefined blur2(data, r) observes the expected integer radius r
+  undefined blur2(data, rx, 0) does horizontal blurring
+  undefined blur2(data, 0, ry) does vertical blurring
+  undefined count() accepts an iterable
+  undefined count() ignores NaN, null
+  undefined count() coerces to a number
+  undefined count() accepts an accessor
+  undefined cross() returns an empty array
+  undefined cross([]) returns an empty array
+  undefined cross([1, 2], []) returns an empty array
+  undefined cross({length: weird}) returns an empty array
+  undefined cross(...strings) returns the expected result
+  undefined cross(a) returns the expected result
+  undefined cross(a, b) returns Cartesian product a×b
+  undefined cross(a, b, c) returns Cartesian product a×b×c
+  undefined cross(a, b, f) invokes the specified function for each pair
+  undefined cross(a, b, c, f) invokes the specified function for each triple
+  undefined cross(a, b) returns Cartesian product a×b of generators
+  undefined cumsum(array) returns the cumulative sum of the specified numbers
+  undefined cumsum(array) observes values that can be coerced to numbers
+  undefined cumsum(array) ignores non-numeric values
+  undefined cumsum(array) ignores null, undefined and NaN
+  undefined cumsum(array) returns zeros if there are no numbers
+  undefined cumsum(array, f) returns the cumsum of the specified numbers
+  undefined cumsum(array, f) observes values that can be coerced to numbers
+  undefined cumsum(array, f) ignores non-numeric values
+  undefined cumsum(array, f) ignores null, undefined and NaN
+  undefined cumsum(array, f) returns zeros if there are no numbers
+  undefined cumsum(array, f) passes the accessor d, i, and array
+  undefined cumsum(array, f) uses the undefined context
+  undefined descending(a, b) returns a positive number if a < b
+  undefined descending(a, b) returns a negative number if a > b
+  undefined descending(a, b) returns zero if a >= b and a <= b
+  undefined descending(a, b) returns NaN if a and b are not comparable
+  undefined deviation(array) returns the standard deviation of the specified numbers
+  undefined deviation(array) ignores null, undefined and NaN
+  undefined deviation(array) can handle large numbers without overflowing
+  undefined deviation(array) returns undefined if the array has fewer than two numbers
+  undefined deviation(array, f) returns the deviation of the specified numbers
+  undefined deviation(array, f) ignores null, undefined and NaN
+  undefined deviation(array, f) can handle large numbers without overflowing
+  undefined deviation(array, f) returns undefined if the array has fewer than two numbers
+  undefined difference(values, other) returns a set of values
+  undefined difference(...values) accepts iterables
+  undefined difference(values, other) performs interning (224ms)
+  undefined disjoint(values, other) returns true if sets are disjoint
+  undefined disjoint(values, other) allows values to be infinite
+  undefined disjoint(values, other) allows other to be infinite
+  undefined disjoint(values, other) performs interning
+  undefined every(values, test) returns true if all tests pass
+  undefined every(values, test) returns true if values is empty
+  undefined every(values, test) accepts an iterable
+  undefined every(values, test) enforces that test is a function
+  undefined every(values, test) enforces that values is iterable
+  undefined every(values, test) passes test (value, index, values)
+  undefined every(values, test) short-circuts when test returns falsey
+  undefined every(values, test) does not skip sparse elements
+  undefined extent(array) returns the least and greatest numeric values for numbers
+  undefined extent(array) returns the least and greatest lexicographic value for strings
+  undefined extent(array) ignores null, undefined and NaN
+  undefined extent(array) compares heterogenous types as numbers
+  undefined extent(array) returns undefined if the array contains no numbers
+  undefined extent(array, f) returns the least and greatest numeric value for numbers
+  undefined extent(array, f) returns the least and greatest lexicographic value for strings
+  undefined extent(array, f) ignores null, undefined and NaN
+  undefined extent(array, f) compares heterogenous types as numbers
+  undefined extent(array, f) returns undefined if the array contains no observed values
+  undefined extent(array, f) passes the accessor d, i, and array
+  undefined extent(array, f) uses the undefined context
+  undefined fcumsum(array) returns a Float64Array of the expected length
+  undefined fcumsum(array) is an exact cumsum
+  undefined fcumsum(array) returns the fsum of the specified numbers
+  undefined fcumsum(array) observes values that can be coerced to numbers
+  undefined fcumsum(array) ignores non-numeric values
+  undefined fcumsum(array) ignores null, undefined and NaN
+  undefined fcumsum(array) returns an array of zeros if there are no numbers
+  undefined fcumsum(array, f) returns the fsum of the specified numbers
+  undefined fcumsum(array, f) observes values that can be coerced to numbers
+  undefined fcumsum(array, f) ignores non-numeric values
+  undefined fcumsum(array, f) ignores null, undefined and NaN
+  undefined fcumsum(array, f) returns zero if there are no numbers
+  undefined fcumsum(array, f) passes the accessor d, i, and array
+  undefined fcumsum(array, f) uses the undefined context
+  undefined filter(values, test) returns the values that pass the test
+  undefined filter(values, test) accepts an iterable
+  undefined filter(values, test) accepts a typed array
+  undefined filter(values, test) enforces that test is a function
+  undefined filter(values, test) enforces that values is iterable
+  undefined filter(values, test) passes test (value, index, values)
+  undefined filter(values, test) does not skip sparse elements
+  undefined flatGroup(data, accessor, accessor) returns the expected array
+  undefined flatRollup(data, reduce, accessor) returns the expected array
+  undefined flatRollup(data, reduce, accessor, accessor) returns the expected array
+  undefined new Adder() returns an Adder
+  undefined +adder can be applied several times
+  undefined fsum(array) is an exact sum
+  undefined fsum(array) returns the fsum of the specified numbers
+  undefined fsum(array) observes values that can be coerced to numbers
+  undefined fsum(array) ignores non-numeric values
+  undefined fsum(array) ignores null, undefined and NaN
+  undefined fsum(array) returns zero if there are no numbers
+  undefined fsum(array, f) returns the fsum of the specified numbers
+  undefined fsum(array, f) observes values that can be coerced to numbers
+  undefined fsum(array, f) ignores non-numeric values
+  undefined fsum(array, f) ignores null, undefined and NaN
+  undefined fsum(array, f) returns zero if there are no numbers
+  undefined fsum(array, f) passes the accessor d, i, and array
+  undefined fsum(array, f) uses the undefined context
+  undefined greatestIndex(array) compares using natural order
+  undefined greatestIndex(array, compare) compares using the specified compare function
+  undefined greatestIndex(array, accessor) uses the specified accessor function
+  undefined greatestIndex(array) returns -1 if the array is empty
+  undefined greatestIndex(array) returns -1 if the array contains only incomparable values
+  undefined greatestIndex(array) returns the first of equal values
+  undefined greatestIndex(array) ignores null and undefined
+  undefined greatestIndex(array, accessor) ignores null and undefined
+  undefined greatest(array) compares using natural order
+  undefined greatest(array, compare) compares using the specified compare function
+  undefined greatest(array, accessor) uses the specified accessor function
+  undefined greatest(array) returns undefined if the array is empty
+  undefined greatest(array) returns undefined if the array contains only incomparable values
+  undefined greatest(array) returns the first of equal values
+  undefined greatest(array) ignores null and undefined
+  undefined greatest(array, accessor) ignores null and undefined
+  undefined groupSort(data, reduce, key) returns sorted keys when reduce is an accessor
+  undefined groupSort(data, reduce, key) returns sorted keys when reduce is a comparator
+  undefined groups(data, accessor) returns the expected array
+  undefined groups(data, accessor, accessor) returns the expected array
+  undefined group(data, accessor) returns the expected map
+  undefined group(data, accessor, accessor) returns the expected map
+  undefined group(data, accessor) interns keys
+  undefined indexes(data, ...keys) returns the expected nested arrays
+  undefined index(data, ...keys) returns the expected map
+  undefined index(data, ...keys) throws on a non-unique key
+  undefined intersection(values) returns a set of values
+  undefined intersection(values, other) returns a set of values
+  undefined intersection(...values) returns a set of values
+  undefined intersection(...values) accepts iterables
+  undefined intersection(...values) performs interning
+  undefined leastIndex(array) compares using natural order
+  undefined leastIndex(array, compare) compares using the specified compare function
+  undefined leastIndex(array, accessor) uses the specified accessor function
+  undefined leastIndex(array) returns -1 if the array is empty
+  undefined leastIndex(array) returns -1 if the array contains only incomparable values
+  undefined leastIndex(array) returns the first of equal values
+  undefined leastIndex(array) ignores null and undefined
+  undefined leastIndex(array, accessor) ignores null and undefined
+  undefined least(array) compares using natural order
+  undefined least(array, compare) compares using the specified compare function
+  undefined least(array, accessor) uses the specified accessor function
+  undefined least(array) returns undefined if the array is empty
+  undefined least(array) returns undefined if the array contains only incomparable values
+  undefined least(array) returns the first of equal values
+  undefined least(array) ignores null and undefined
+  undefined least(array, accessor) ignores null and undefined
+  undefined map(values, mapper) returns the mapped values
+  undefined map(values, mapper) accepts an iterable
+  undefined map(values, mapper) accepts a typed array
+  undefined map(values, mapper) enforces that test is a function
+  undefined map(values, mapper) enforces that values is iterable
+  undefined map(values, mapper) passes test (value, index, values)
+  undefined map(values, mapper) does not skip sparse elements
+  undefined maxIndex(array) returns the index of the greatest numeric value for numbers
+  undefined maxIndex(array) returns the greatest lexicographic value for strings
+  undefined maxIndex(array) ignores null, undefined and NaN
+  undefined maxIndex(array) compares heterogenous types as numbers
+  undefined maxIndex(array) returns -1 if the array contains no numbers
+  undefined maxIndex(array, f) returns the greatest numeric value for numbers
+  undefined maxIndex(array, f) returns the greatest lexicographic value for strings
+  undefined maxIndex(array, f) ignores null, undefined and NaN
+  undefined maxIndex(array, f) compares heterogenous types as numbers
+  undefined maxIndex(array, f) returns -1 if the array contains no observed values
+  undefined maxIndex(array, f) passes the accessor d, i, and array
+  undefined maxIndex(array, f) uses the undefined context
+  undefined max(array) returns the greatest numeric value for numbers
+  undefined max(array) returns the greatest lexicographic value for strings
+  undefined max(array) ignores null, undefined and NaN
+  undefined max(array) compares heterogenous types as numbers
+  undefined max(array) returns undefined if the array contains no numbers
+  undefined max(array, f) returns the greatest numeric value for numbers
+  undefined max(array, f) returns the greatest lexicographic value for strings
+  undefined max(array, f) ignores null, undefined and NaN
+  undefined max(array, f) compares heterogenous types as numbers
+  undefined max(array, f) returns undefined if the array contains no observed values
+  undefined max(array, f) passes the accessor d, i, and array
+  undefined max(array, f) uses the undefined context
+  undefined mean(array) returns the mean value for numbers
+  undefined mean(array) ignores null, undefined and NaN
+  undefined mean(array) returns undefined if the array contains no observed values
+  undefined mean(array) coerces values to numbers
+  undefined mean(array) coerces values exactly once
+  undefined mean(array, f) returns the mean value for numbers
+  undefined mean(array, f) ignores null, undefined and NaN
+  undefined mean(array, f) returns undefined if the array contains no observed values
+  undefined mean(array, f) coerces values to numbers
+  undefined mean(array, f) coerces values exactly once
+  undefined mean(array, f) passes the accessor d, i, and array
+  undefined mean(array, f) uses the undefined context
+  undefined median(array) returns the median value for numbers
+  undefined median(array) ignores null, undefined and NaN
+  undefined median(array) can handle large numbers without overflowing
+  undefined median(array) returns undefined if the array contains no observed values
+  undefined median(array) coerces strings to numbers
+  undefined median(array) coerces values exactly once
+  undefined median(array, f) returns the median value for numbers
+  undefined median(array, f) ignores null, undefined and NaN
+  undefined median(array, f) can handle large numbers without overflowing
+  undefined median(array, f) returns undefined if the array contains no observed values
+  undefined median(array, f) coerces strings to numbers
+  undefined median(array, f) coerces values exactly once
+  undefined median(array, f) passes the accessor d, i, and array
+  undefined median(array, f) uses the undefined context
+  undefined medianIndex(array) returns the index
+  undefined merge(arrays) merges an array of arrays
+  undefined merge(arrays) returns a new array when zero arrays are passed
+  undefined merge(arrays) returns a new array when one array is passed
+  undefined merge(arrays) returns a new array when two or more arrays are passed
+  undefined merge(arrays) does not modify the input arrays
+  undefined minIndex(array) returns the index of the least numeric value for numbers
+  undefined minIndex(array) returns the index of the least lexicographic value for strings
+  undefined minIndex(array) ignores null, undefined and NaN
+  undefined minIndex(array) compares heterogenous types as numbers
+  undefined minIndex(array) returns -1 if the array contains no numbers
+  undefined minIndex(array, f) returns the index of the least numeric value for numbers
+  undefined minIndex(array, f) returns the index of the least lexicographic value for strings
+  undefined minIndex(array, f) ignores null, undefined and NaN
+  undefined minIndex(array, f) compares heterogenous types as numbers
+  undefined minIndex(array, f) returns -1 if the array contains no observed values
+  undefined minIndex(array, f) passes the accessor d, i, and array
+  undefined minIndex(array, f) uses the undefined context
+  undefined min(array) returns the least numeric value for numbers
+  undefined min(array) returns the least lexicographic value for strings
+  undefined min(array) ignores null, undefined and NaN
+  undefined min(array) compares heterogenous types as numbers
+  undefined min(array) returns undefined if the array contains no numbers
+  undefined min(array, f) returns the least numeric value for numbers
+  undefined min(array, f) returns the least lexicographic value for strings
+  undefined min(array, f) ignores null, undefined and NaN
+  undefined min(array, f) compares heterogenous types as numbers
+  undefined min(array, f) returns undefined if the array contains no observed values
+  undefined min(array, f) passes the accessor d, i, and array
+  undefined min(array, f) uses the undefined context
+  undefined mode(array) returns the most frequent value for numbers
+  undefined mode(array) returns the most frequent value for strings
+  undefined mode(array) returns the most frequent value for heterogenous types
+  undefined mode(array) returns the first of the most frequent values
+  undefined mode(array) ignores null, undefined and NaN
+  undefined mode(array) returns undefined if the array contains no comparable values
+  undefined mode(array, f) returns the most frequent value for numbers
+  undefined mode(array, f) returns the most frequent value for strings
+  undefined mode(array, f) returns the most frequent value for heterogenous types
+  undefined mode(array, f) returns the first of the most frequent values
+  undefined mode(array, f) ignores null, undefined and NaN
+  undefined mode(array, f) returns undefined if the array contains no comparable values
+  undefined mode(array, f) passes the accessor d, i, and array
+  undefined mode(array, f) uses the undefined context
+  undefined nice(start, stop, count) returns [start, stop] if any argument is NaN
+  undefined nice(start, stop, count) returns [start, stop] if start === stop
+  undefined nice(start, stop, count) returns [start, stop] if count is not positive
+  undefined nice(start, stop, count) returns [start, stop] if count is infinity
+  undefined nice(start, stop, count) returns the expected values
+  undefined pairs(array) returns the empty array if input array has fewer than two elements
+  undefined pairs(array) returns pairs of adjacent elements in the given array
+  undefined pairs(array, f) invokes the function f for each pair of adjacent elements
+  undefined pairs(array) includes null or undefined elements in pairs
+  undefined permute(…) permutes according to the specified index
+  undefined permute(…) does not modify the input array
+  undefined permute(…) can duplicate input values
+  undefined permute(…) can return more elements
+  undefined permute(…) can return fewer elements
+  undefined permute(…) can return undefined elements
+  undefined permute(…) can take an object as the source
+  undefined permute(…) can take a typed array as the source
+  undefined permute(…) can take an iterable as the keys
+  undefined quantileSorted(array, p) requires sorted numeric input, quantile doesn't
+  undefined quantile() accepts an iterable
+  undefined quantile(array, p) uses the R-7 method
+  undefined quantile(array, p) coerces values to numbers
+  undefined quantile(array, p) returns an exact value for integer p-values
+  undefined quantile(array, p) returns the expected value for integer or fractional p
+  undefined quantile(array, p) returns the first value for p = 0
+  undefined quantile(array, p) returns the last value for p = 1
+  undefined quantile(array, p, f) observes the specified accessor
+  undefined quantileIndex(array, p) returns the index
+  undefined quantileIndex(array, 0) returns the minimum index
+  undefined quantileIndex(array, 1) returns the maxium index
+  undefined range(stop) returns [0, 1, 2, … stop - 1]
+  undefined range(stop) returns an empty array if stop <= 0
+  undefined range(stop) returns an empty array if stop is NaN
+  undefined range(start, stop) returns [start, start + 1, … stop - 1]
+  undefined range(start, stop) returns an empty array if start or stop is NaN
+  undefined range(start, stop) returns an empty array if start >= stop
+  undefined range(start, stop, step) returns [start, start + step, start + 2 * step, … stop - step]
+  undefined range(start, stop, step) allows a negative step
+  undefined range(start, stop, step) returns an empty array if start >= stop and step > 0
+  undefined range(start, stop, step) returns an empty array if start >= stop and step < 0
+  undefined range(start, stop, step) returns an empty array if start, stop or step is NaN
+  undefined range(start, stop, step) returns an empty array if step is zero
+  undefined range(start, stop, step) returns exactly [start + step * i, …] for fractional steps
+  undefined range(start, stop, step) returns exactly [start + step * i, …] for very small fractional steps
+  undefined range(start, stop, step) returns exactly [start + step * i, …] for very large fractional steps
+  undefined rank(numbers) returns the rank of numbers
+  undefined rank(strings) returns the rank of letters
+  undefined rank(dates) returns the rank of Dates
+  undefined rank(iterator) accepts an iterator
+  undefined rank(undefineds) ranks undefined as NaN
+  undefined rank(values, valueof) accepts an accessor
+  undefined rank(values, compare) accepts a comparator
+  undefined rank(values) computes the ties as expected
+  undefined rank(values) handles NaNs as expected
+  undefined reduce(values, reducer) returns the reduced value
+  undefined reduce(values, reducer, initial) returns the reduced value
+  undefined reduce(values, reducer) accepts an iterable
+  undefined reduce(values, reducer) enforces that test is a function
+  undefined reduce(values, reducer) enforces that values is iterable
+  undefined reduce(values, reducer) passes reducer (reduced, value, index, values)
+  undefined reduce(values, reducer, initial) passes reducer (reduced, value, index, values)
+  undefined reduce(values, reducer, initial) does not skip sparse elements
+  undefined reverse(values) returns a reversed copy
+  undefined reverse(values) returns an array
+  undefined reverse(values) accepts an iterable
+  undefined reverse(values) enforces that values is iterable
+  undefined reverse(values) does not skip sparse elements
+  undefined rollups(data, reduce, accessor) returns the expected array
+  undefined rollups(data, reduce, accessor, accessor) returns the expected array
+  undefined rollup(data, reduce, accessor) returns the expected map
+  undefined rollup(data, reduce, accessor, accessor) returns the expected map
+  undefined scan(array) compares using natural order
+  undefined scan(array, compare) compares using the specified compare function
+  undefined scan(array) returns undefined if the array is empty
+  undefined scan(array) returns undefined if the array contains only incomparable values
+  undefined scan(array) returns the first of equal values
+  undefined some(values, test) returns true if any test passes
+  undefined some(values, test) returns false if values is empty
+  undefined some(values, test) accepts an iterable
+  undefined some(values, test) enforces that test is a function
+  undefined some(values, test) enforces that values is iterable
+  undefined some(values, test) passes test (value, index, values)
+  undefined some(values, test) short-circuts when test returns truthy
+  undefined some(values, test) does not skip sparse elements
+  undefined sort(values) returns a sorted copy
+  undefined sort(values) defaults to ascending, not lexicographic
+  undefined sort(values) puts non-orderable values last, followed by undefined
+  undefined sort(values, comparator) puts non-orderable values last, followed by undefined
+  undefined sort(values, accessor) puts non-orderable values last
+  undefined sort(values, accessor) uses the specified accessor in natural order
+  undefined sort(values, ...accessors) accepts multiple accessors
+  undefined sort(values, comparator) uses the specified comparator
+  undefined sort(values) returns an array
+  undefined sort(values) accepts an iterable
+  undefined sort(values) enforces that values is iterable
+  undefined sort(values, comparator) enforces that comparator is a function
+  undefined sort(values) does not skip sparse elements
+  undefined subset(values, other) returns true if values is a subset of others
+  undefined subset(values, other) performs interning
+  undefined sum(array) returns the sum of the specified numbers
+  undefined sum(array) observes values that can be coerced to numbers
+  undefined sum(array) ignores non-numeric values
+  undefined sum(array) ignores null, undefined and NaN
+  undefined sum(array) returns zero if there are no numbers
+  undefined sum(array, f) returns the sum of the specified numbers
+  undefined sum(array, f) observes values that can be coerced to numbers
+  undefined sum(array, f) ignores non-numeric values
+  undefined sum(array, f) ignores null, undefined and NaN
+  undefined sum(array, f) returns zero if there are no numbers
+  undefined sum(array, f) passes the accessor d, i, and array
+  undefined sum(array, f) uses the undefined context
+  undefined superset(values, other) returns true if values is a superset of others
+  undefined superset(values, other) allows values to be infinite
+  undefined superset(values, other) allows other to be infinite
+  undefined superset(values, other) performs interning
+  undefined tickIncrement(start, stop, count) returns NaN if any argument is NaN
+  undefined tickIncrement(start, stop, count) returns NaN or -Infinity if start === stop
+  undefined tickIncrement(start, stop, count) returns 0 or Infinity if count is not positive
+  undefined tickIncrement(start, stop, count) returns -Infinity if count is infinity
+  undefined tickIncrement(start, stop, count) returns approximately count + 1 tickIncrement when start < stop
+  undefined tickStep(start, stop, count) returns NaN if any argument is NaN
+  undefined tickStep(start, stop, count) returns NaN or 0 if start === stop
+  undefined tickStep(start, stop, count) returns 0 or Infinity if count is not positive
+  undefined tickStep(start, stop, count) returns 0 if count is infinity
+  undefined tickStep(start, stop, count) returns approximately count + 1 tickStep when start < stop
+  undefined tickStep(start, stop, count) returns -tickStep(stop, start, count)
+  undefined ticks(start, stop, count) returns the empty array if any argument is NaN
+  undefined ticks(start, stop, count) returns the empty array if start === stop and count is non-positive
+  undefined ticks(start, stop, count) returns the empty array if start === stop and count is positive
+  undefined ticks(start, stop, count) returns the empty array if count is not positive
+  undefined ticks(start, stop, count) returns the empty array if count is infinity
+  undefined ticks(start, stop, count) does not include negative zero
+  undefined ticks(start, stop, count) remains within the domain
+  undefined ticks(start, stop, count) returns approximately count + 1 ticks when start < stop
+  undefined ticks(start, stop, count) returns the reverse of ticks(stop, start, count)
+  undefined ticks(start, stop, count) handles precision problems
+  undefined transpose([]) and transpose([[]]) return an empty array
+  undefined transpose([[a, b, …]]) returns [[a], [b], …]
+  undefined transpose([[a1, b1, …], [a2, b2, …]]) returns [[a1, a2], [b1, b2], …]
+  undefined transpose([[a1, b1, …], [a2, b2, …], [a3, b3, …]]) returns [[a1, a2, a3], [b1, b2, b3], …]
+  undefined transpose(…) ignores extra elements given an irregular matrix
+  undefined transpose(…) returns a copy
+  undefined union(values) returns a set of values
+  undefined union(values, other) returns a set of values
+  undefined union(...values) returns a set of values
+  undefined union(...values) accepts iterables
+  undefined union(...values) performs interning
+  undefined variance(array) returns the variance of the specified numbers
+  undefined variance(array) ignores null, undefined and NaN
+  undefined variance(array) can handle large numbers without overflowing
+  undefined variance(array) returns undefined if the array has fewer than two numbers
+  undefined variance(array, f) returns the variance of the specified numbers
+  undefined variance(array, f) ignores null, undefined and NaN
+  undefined variance(array, f) can handle large numbers without overflowing
+  undefined variance(array, f) returns undefined if the array has fewer than two numbers
+  undefined variance(array, f) passes the accessor d, i, and array
+  undefined variance(array, f) uses the undefined context
+  undefined zip() and zip([]) return an empty array
+  undefined zip([a, b, …]) returns [[a], [b], …]
+  undefined zip([a1, b1, …], [a2, b2, …]) returns [[a1, a2], [b1, b2], …]
+  undefined zip([a1, b1, …], [a2, b2, …], [a3, b3, …]) returns [[a1, a2, a3], [b1, b2, b3], …]
+  undefined zip(…) ignores extra elements given an irregular matrix
+
+  505 passing (2s)
+  1 pending
+
+Removing node_modules/d3-array
+   create-stamp debian/debhelper-build-stamp
+   dh_prep
+   dh_auto_install --buildsystem=nodejs --destdir=debian/node-d3-array/
+dh_auto_install: warning: ### Missing ./build/config.gypi, skipping
+
+dh_auto_install: warning: package.json#main file not installed, forcing it (./dist/index.cjs)
+
+Found "files" field in ./package.json, using it
+Parsing expression ./dist/**/*.js
+Line ./dist/**/*.js becomes: ^./dist/.*(?<=/)[^/]*\.js$
+Parsing expression ./src/**/*.js
+Line ./src/**/*.js becomes: ^./src/.*(?<=/)[^/]*\.js$
+	mkdir -p /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/dist
+	install -m 644 ./dist/d3-array.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/dist/
+	install -m 644 ./dist/d3-array.min.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/dist/
+	mkdir -p /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src
+	install -m 644 ./src/array.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/ascending.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/bin.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/bisect.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/bisector.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/constant.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/count.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/cross.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/cumsum.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/descending.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/deviation.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/difference.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/disjoint.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/every.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/extent.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/filter.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/fsum.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/greatest.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/greatestIndex.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/group.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/groupSort.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/identity.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/intersection.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/least.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/leastIndex.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/map.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/max.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/maxIndex.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/mean.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/merge.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/min.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/minIndex.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/mode.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/nice.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/number.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/pairs.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/permute.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/range.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/rank.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/reduce.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/reverse.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/scan.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/shuffle.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/some.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/sort.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/subset.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/sum.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/superset.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/ticks.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/transpose.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/union.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/variance.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/zip.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/blur.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/index.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/median.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/quantile.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	install -m 644 ./src/quickselect.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/
+	mkdir -p /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/threshold
+	install -m 644 ./src/threshold/freedmanDiaconis.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/threshold/
+	install -m 644 ./src/threshold/scott.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/threshold/
+	install -m 644 ./src/threshold/sturges.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/src/threshold/
+	install -m 644 ./package.json /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array//
+	install -m 644 ./dist/index.cjs /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array/dist/
+	install -m 644 ./package.json /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/d3-array//
+Package looks like a bundle, generating pkgjs-lock.json file
+dh_auto_install: warning: ### Missing internmap/build/config.gypi, skipping
+
+dh_auto_install: warning: package.json#main file not installed, forcing it (internmap/dist/index.cjs)
+
+Found "files" field in internmap/package.json, using it
+Parsing expression internmap/dist/**/*.js
+Line internmap/dist/**/*.js becomes: ^internmap/dist/.*(?<=/)[^/]*\.js$
+Parsing expression internmap/src/**/*.js
+Line internmap/src/**/*.js becomes: ^internmap/src/.*(?<=/)[^/]*\.js$
+	mkdir -p /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap/dist
+	install -m 644 internmap/dist/internmap.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap/dist/
+	install -m 644 internmap/dist/internmap.min.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap/dist/
+	mkdir -p /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap/src
+	install -m 644 internmap/src/index.js /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap/src/
+	install -m 644 internmap/package.json /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap//
+	install -m 644 internmap/dist/index.cjs /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap/dist/
+	install -m 644 internmap/package.json /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/internmap//
+Package looks like a bundle, generating pkgjs-lock.json file
+dh_auto_install: warning: ### Missing types-d3-array/build/config.gypi, skipping
+
+No "files" field in types-d3-array/package.json, install all files
+Files to install: types-d3-array, !types-d3-array/build/config.gypi
+	mkdir -p /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/\@types/d3-array/
+	install -m 644 types-d3-array/index.d.ts /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/\@types/d3-array//
+	install -m 644 types-d3-array/package.json /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/\@types/d3-array//
+	install -m 644 types-d3-array/package.json /home/sandra/deb-packaging/node-d3/node-d3-array/debian/node-d3-array//usr/share/nodejs/\@types/d3-array//
+Package looks like a bundle, generating pkgjs-lock.json file
+No build dependencies found, skip pkgjs-lock.json
+Populate ${nodejs:Provides}:
+ + node-internmap (= 2.0.3)
+ + node-types-d3-array (= 3.0.3)
+Add node-jsdom (= 20.0.0+repack1+~cs121.19.20-2) in ${nodejs:BuiltUsing}
+Add rollup (= 2.79.1-1) in ${nodejs:BuiltUsing}
+Add node-rollup-plugin-node-resolve (= 14.1.0+ds-2) in ${nodejs:BuiltUsing}
+Add node-rollup-plugin-terser (= 7.0.2+~5.0.1-7) in ${nodejs:BuiltUsing}
+Add node-d3-dsv (= 1.1.1-7) in ${nodejs:BuiltUsing}
+Add mocha (= 10.0.0+ds1+~cs28.5.6-2) in ${nodejs:BuiltUsing}
+Set ${nodejs:Version} to 18.10.0+dfsg
+   dh_installdocs
+   dh_installchangelogs
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_installdeb
+   dh_nodejs_substvars
+   dh_gencontrol
+dpkg-gencontrol: warning: package node-d3-array: substitution variable ${nodejs:BuiltUsing} unused, but is defined
+dpkg-gencontrol: warning: package node-d3-array: substitution variable ${nodejs:Version} unused, but is defined
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'node-d3-array' in '../node-d3-array_3.2.0+~cs5.0.6-1_all.deb'.
+ dpkg-genbuildinfo -O../node-d3-array_3.2.0+~cs5.0.6-1_amd64.buildinfo
+ dpkg-genchanges -O../node-d3-array_3.2.0+~cs5.0.6-1_amd64.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --after-build .
+dpkg-source: info: unapplying export-commonjs-files.patch
+dpkg-buildpackage: info: full upload (original source is included)
+Now running lintian node-d3-array_3.2.0+~cs5.0.6-1_amd64.changes ...
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile dsc node-d3-array_3.2.0+~cs5.0.6-1.dsc sandra uwah <sandrauwah282@gmail.com>
+gpg: skipped "sandra uwah <sandrauwah282@gmail.com>": No secret key
+gpg: /tmp/debsign.3Nh54kml/node-d3-array_3.2.0+~cs5.0.6-1.dsc: clear-sign failed: No secret key
+debsign: gpg error occurred!  Aborting....
